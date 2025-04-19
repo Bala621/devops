@@ -126,6 +126,17 @@
         </snapshotRepository>
     </distributionManagement>
 
-	
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-maven-plugin</artifactId>
+      <version>2.5.6</version>
+      <configuration>
+        <mainClass>com.yourpackage.YourMainClass</mainClass>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>	
 
 </project>
