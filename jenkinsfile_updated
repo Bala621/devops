@@ -10,7 +10,7 @@ pipeline {
     }
     
     stages {
-        stage('GIT NEW CHECKOUT') {
+        stage('GIT CHECKOUT') {
             steps {
                git branch: 'main', url: 'https://github.com/VM2322/Vivek-s-Gaming-Application'
             }
@@ -22,7 +22,7 @@ pipeline {
             }
         }
         
-        stage('MAVEN TEST') {
+        stage('MAVEN NEW TESTING') {
             steps {
                 sh "mvn test"
             }
@@ -43,7 +43,7 @@ pipeline {
             }
         }
         
-                stage('QUALITY GATE') {
+                stage('QUALITY GATES') {
             steps {
                 script {
                   waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token' 
@@ -57,7 +57,7 @@ pipeline {
             }
         }
         
-       stage('BUILD & TAG DOCKER IMAGE') {
+       stage('BUILD & TAG DOCKER IMAGES') {
             steps {
                script {
                    withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
